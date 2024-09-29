@@ -1,13 +1,86 @@
 import { Component } from '@angular/core';
+import { WorldBankService } from './world-bank.service';  
+import { Observable } from 'rxjs'; //Reactive Extensions for JavaScript
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet ], 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true //Standalone
+
 })
+
 export class AppComponent {
-  title = 'LanceRoller-SVGMap';
+  countryData: any;
+
+  //Constructor creates instance.
+  constructor(public worldBankService: WorldBankService) {}
+
+  ngOnInit() {
+
+  }
+
+
+  onMouseOver(event: MouseEvent) {
+    // Check if the hovered element is a path
+    const target = event.target as SVGPathElement;
+
+    if (target.tagName === 'path' && target.id) {
+      console.log('Mouse over on: ', target.id);
+      this.fetchCountryData(target.id);
+    }
+  }
+
+  //"Observable" is a class that helps with Async data. Values/events emitted over time.
+    //Next: Emit value
+    //Error: Handle Error Event
+    //Complete: No more values will be emitted.
+//"any" simply means any value of any type.
+
+
+fetchCountryData(countryName: string): void {
+  this.worldBankService.getCountryData(countryName).subscribe(
+    (data: any[]) => {
+      if (!countryName ){
+        console.log("Can't find country name");
+      }
+      
+      const countryData = data[1][0];
+
+      if (countryData) {
+        this.countryData = {
+          name: countryData.name,
+          capital: countryData.capitalCity,
+          population: countryData.population,
+          region: countryData.region?.value,
+          incomeLevel: countryData.incomeLevel?.value,
+          longitude: countryData.longitude,
+          latitude: countryData.latitude
+        };
+      }
+      else{
+        console.log("Cant find CountryData");
+      }
+    },
+    (error: any) => {
+      console.error(`Error fetching country data for ${countryName}:`, error);
+    }
+  );
+
+
 }
+}
+
+//PART C:
+  //Country Name
+  //Country Capital
+  //Country Region
+  //Income Level
+  //TODO
+  //TODO
+
+//TODO -- I have to see what data im retrieving so we can display the other 2 extra categories

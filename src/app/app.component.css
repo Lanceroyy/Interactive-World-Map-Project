@@ -1,0 +1,44 @@
+
+
+body {
+  background-color: rgb(59, 59, 220);
+}
+
+div {
+  float: left;
+  position: fixed;
+  
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  
+}
+
+.text-container {
+  color: white;
+  background-color: rgb(12, 68, 28);
+  padding: 10px;
+  width: 18%;
+}
+
+svg {
+  width: 80%;
+  height: auto;
+  margin-left: 5%; 
+  float: right;
+  
+}
+  
+svg path {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.25;
+}
+  
+svg path:hover {
+  fill: yellowgreen;
+  transition: 0.5s;
+  cursor: pointer;
+}
