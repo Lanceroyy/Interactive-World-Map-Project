@@ -2,23 +2,26 @@ import { Component } from '@angular/core';
 import { WorldBankService } from './world-bank.service';  
 import { Observable } from 'rxjs'; //Reactive Extensions for JavaScript
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet ], 
+  imports: [CommonModule, RouterOutlet, RouterLink ], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true //Standalone
+  standalone: true, //Standalone
+  template: `<a routerLink="/">Home</a>`
 
 })
 
 export class AppComponent {
   countryData: any;
 
+  
   //Constructor creates instance.
-  constructor(public worldBankService: WorldBankService) {}
+  constructor(public worldBankService: WorldBankService, private router: Router) {}
+  
 
   ngOnInit() {
 

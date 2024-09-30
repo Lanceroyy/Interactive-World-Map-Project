@@ -1,14 +1,24 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component'; // Adjust path as needed
+import { Routes } from '@angular/router';
+import { AppComponent } from './app.component';
+
 
 export const routes: Routes = [
-  { path: '', component: AppComponent },
-  // Add other routes here
+  {
+    path: 'home', 
+    component: AppComponent
+  },
+
+  { 
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+
+  },
+
+  {
+    path: '**',
+    redirectTo: '/home'
+  }
+
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
