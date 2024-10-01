@@ -28,6 +28,7 @@ export class AppComponent {
   }
 
 
+  //MouseOver Function
   onMouseOver(event: MouseEvent) {
     // Check if the hovered element is a path
     const target = event.target as SVGPathElement;
