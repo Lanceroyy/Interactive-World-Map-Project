@@ -13,8 +13,12 @@ export class WorldBankService {
 
   constructor(private http: HttpClient) {}
 
+  //Accepts a two letter country code as input and returns API info
   getCountryData(countryCode: string): Observable<any> {
     
     return this.http.get(`${this.apiUrl}/${countryCode}?format=json`);
   }
+
+
+
 }

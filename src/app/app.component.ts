@@ -46,6 +46,8 @@ export class AppComponent {
 //"any" simply means any value of any type.
 
 
+//Triggers the service method when a country is selected.
+//Called in onMouseOver()
 fetchCountryData(countryName: string): void {
   this.worldBankService.getCountryData(countryName).subscribe(
     (data: any[]) => {
