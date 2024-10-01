@@ -4,31 +4,48 @@ body {
   background-color: rgb(59, 59, 220);
 }
 
+table {
+  width: 100%; 
+  height: 10%;
+ 
+}
+
+.statsTdContainer {
+  width: 20%;
+}
+
+.mapTdContainer {
+  width: 80%;
+  height: 10%;
+}
+
+
 div {
-  float: left;
+  float: right;
   position: fixed;
   
 }
 
 .container {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
+  padding: 20px;
   
 }
 
 .text-container {
   color: white;
   background-color: rgb(12, 68, 28);
-  padding: 10px;
-  width: 18%;
+  padding: 20px;
+
 }
 
 svg {
-  width: 80%;
-  height: auto;
-  margin-left: 5%; 
-  float: right;
   
+  margin-right: 20px;
+  width: auto;
+  height: 100%; 
 }
   
 svg path {

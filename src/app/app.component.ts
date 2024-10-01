@@ -77,13 +77,3 @@ fetchCountryData(countryName: string): void {
 
 }
 }
-
-//PART C:
-  //Country Name
-  //Country Capital
-  //Country Region
-  //Income Level
-  //TODO
-  //TODO
-
-//TODO -- I have to see what data im retrieving so we can display the other 2 extra categories
