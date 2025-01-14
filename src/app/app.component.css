@@ -1,0 +1,61 @@
+
+
+body {
+  background-color: rgb(59, 59, 220);
+}
+
+table {
+  width: 100%; 
+  height: 10%;
+ 
+}
+
+.statsTdContainer {
+  width: 20%;
+}
+
+.mapTdContainer {
+  width: 80%;
+  height: 10%;
+}
+
+
+div {
+  float: right;
+  position: fixed;
+  
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  
+}
+
+.text-container {
+  color: white;
+  background-color: rgb(12, 68, 28);
+  padding: 20px;
+
+}
+
+svg {
+  
+  margin-right: 20px;
+  width: auto;
+  height: 100%; 
+}
+  
+svg path {
+  fill: white;
+  stroke: black;
+  stroke-width: 0.25;
+}
+  
+svg path:hover {
+  fill: yellowgreen;
+  transition: 0.5s;
+  cursor: pointer;
+}
